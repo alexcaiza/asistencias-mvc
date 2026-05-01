@@ -35,11 +35,33 @@ class AdminController extends Controller {
 
     public function usuarios() {
         $usuarioModel = $this->model('Usuario');
-        $usuarios = $usuarioModel->getAllUsers();
+        
+        $page = $_GET['page'] ?? 1;
+        $perPage = 10;
+        
+        $search = $_GET['search'] ?? null;
+        $dni = $_GET['dni'] ?? null;
+        $email = $_GET['email'] ?? null;
+        $rolId = $_GET['rol'] ?? null;
+        
+        $total = $usuarioModel->countUsersFiltered($search, $dni, $email, $rolId);
+        $totalPages = ceil($total / $perPage);
+        $usuarios = $usuarioModel->getUsersPaginated($page, $perPage, $search, $dni, $email, $rolId);
+        $roles = $usuarioModel->getActiveRoles();
 
         $this->view('admin/usuarios/index', [
             'title' => 'Gestión de Usuarios',
-            'usuarios' => $usuarios
+            'usuarios' => $usuarios,
+            'currentPage' => $page,
+            'totalPages' => $totalPages,
+            'total' => $total,
+            'roles' => $roles,
+            'filters' => [
+                'search' => $search,
+                'dni' => $dni,
+                'email' => $email,
+                'rol' => $rolId
+            ]
         ]);
     }
 

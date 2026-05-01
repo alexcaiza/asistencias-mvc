@@ -569,3 +569,64 @@ tr:hover {
         display: block !important;
     }
 }
+
+.admin-layout {
+    display: flex;
+    gap: 0;
+    margin-top: 0.5rem;
+    min-height: calc(100vh - 120px);
+}
+
+.sidebar-trigger {
+    width: 24px;
+    min-height: 200px;
+    flex-shrink: 0;
+    background: #e0e0e0;
+    border-right: 2px solid #0b4274;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.sidebar-trigger:hover {
+    background: #d8d8d8 !important;
+}
+
+.sidebar-trigger i {
+    color: #0b4274 !important;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.sidebar {
+    width: 0;
+    flex-shrink: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: none;
+    border-radius: 0 0.4rem 0.4rem 0;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar.expanded {
+    width: 220px;
+    opacity: 1;
+}
+
+.sidebar-content {
+    padding: 0.8rem;
+}
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
