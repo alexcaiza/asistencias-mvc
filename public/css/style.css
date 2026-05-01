@@ -578,7 +578,7 @@ tr:hover {
 }
 
 .sidebar-trigger {
-    width: 24px;
+    width: 12px;
     min-height: 200px;
     flex-shrink: 0;
     background: #e0e0e0;
@@ -596,7 +596,7 @@ tr:hover {
 
 .sidebar-trigger i {
     color: #0b4274 !important;
-    font-size: 1.1rem;
+    font-size: 0.7rem;
     font-weight: bold;
 }
 
@@ -616,7 +616,7 @@ tr:hover {
 }
 
 .sidebar.expanded {
-    width: 220px;
+    width: 180px;
     opacity: 1;
 }
 
